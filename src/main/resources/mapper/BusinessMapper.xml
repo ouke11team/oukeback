@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ouke.ouke.mapper.BusinessMapper">
+    <!--简单的查询-->
+    <select id="selectBusinessList" resultType="Business" parameterType="int">
+      SELECT `businessId`,`businessName`,`businessAddress`,`businessExplain`,`businessImg`,`orderTypeId`,`starPrice`,`deliveryPrice`,`remarks`
+      FROM `business`
+--       where orderTypeId=#{orderTypeId}
+--       ORDER BY `deliveryPrice`
+    </select>
+    <!--复杂的查询-->
+    <select id="selectBusinessListByconditions" resultType="Business" parameterType="map">
+        SELECT `businessId`,`businessName`,`businessAddress`,`businessExplain`,`businessImg`,`orderTypeId`,`starPrice`,`deliveryPrice`,`remarks`
+        FROM `business`
+        <where>
+            <if test="orderTypeId!=0">
+                orderTypeId=#{orderTypeId}
+            </if>
+        </where>
+        <choose>
+            <when test="sortType==0"><!--默认排序-->
+                ORDER BY `deliveryPrice`
+            </when>
+            <!--<when test="sortType==1">&lt;!&ndash;销量排序&ndash;&gt;-->
+            <!--ORDER BY `deliveryPrice`-->
+            <!--</when>-->
+            <when test="sortType==2"><!--价格排序-->
+                ORDER BY `starPrice`
+            </when>
+        </choose>
+
+    </select>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ouke.ouke.mapper.FoodMapper">
+    <sql id="Food_Column_List">
+    foodId, foodName, foodExplain, foodPrice, businessId, remarks,foodImg
+  </sql>
+    <select id="selectFoodList" resultType="Food">
+        select
+        <include refid="Food_Column_List"/>
+        from `food`
+        <where>
+            <if test="businessId!=null and businessId!=0">
+                businessId=#{businessId}
+            </if>
+        </where>
+    </select>
+</mapper>

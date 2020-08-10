@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ouke.ouke.mapper.UserMapper">
+    <select id="selectUserList" resultType="User">
+      SELECT `userId`,`userName`,`userSex`,`userImg`,`delTag`
+      FROM `user`
+    </select>
+    <select id="getUserByPassword" resultType="User">
+      select `userId`,`userName`,`userSex`,`userImg`,`delTag`
+      from `user`
+      where userId=#{userId} and password=#{password}
+    </select>
+    <select id="isExistUser" resultType="Integer">
+        SELECT COUNT(userId)
+        FROM `user`
+        WHERE userId=#{userId}
+    </select>
+    <insert id="insert" parameterType="User">
+        INSERT INTO `user` (`userId`,`password`,`userName`,`userSex`)
+        VALUES(#{userId},#{password},#{userName},#{userSex})
+    </insert>
+</mapper>
