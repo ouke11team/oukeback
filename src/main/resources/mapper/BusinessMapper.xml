@@ -5,8 +5,8 @@
     <select id="selectBusinessList" resultType="Business" parameterType="int">
       SELECT `businessId`,`businessName`,`businessAddress`,`businessExplain`,`businessImg`,`orderTypeId`,`starPrice`,`deliveryPrice`,`remarks`
       FROM `business`
---       where orderTypeId=#{orderTypeId}
---       ORDER BY `deliveryPrice`
+      where orderTypeId=#{orderTypeId}
+      ORDER BY `deliveryPrice`
     </select>
     <!--复杂的查询-->
     <select id="selectBusinessListByconditions" resultType="Business" parameterType="map">

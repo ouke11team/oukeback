@@ -9,7 +9,7 @@ import java.util.List;
 
 @Mapper
 public interface BusinessMapper {
-    List<Business> selectBusinessList(@Param("orderTypeId") int orderTypeId);
+    public List<Business> selectBusinessList(Business business);
     @Select("select * from business where businessId=#{businessId} order by businessId")
     Business getBusinessById(Integer businessId);
 }

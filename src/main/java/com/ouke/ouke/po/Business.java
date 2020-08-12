@@ -14,9 +14,9 @@ public class Business {
     //点餐分类
     private int orderTypeId;
     //起送费
-    private String starPrice;
+    private Double starPrice;
     //配送费
-    private String  deliveryPrice;
+    private Double  deliveryPrice;
     //备注
     private String remarks;
 
@@ -68,19 +68,19 @@ public class Business {
         this.orderTypeId = orderTypeId;
     }
 
-    public String getStarPrice() {
+    public Double getStarPrice() {
         return starPrice;
     }
 
-    public void setStarPrice(String starPrice) {
+    public void setStarPrice(Double starPrice) {
         this.starPrice = starPrice;
     }
 
-    public String getDeliveryPrice() {
+    public Double getDeliveryPrice() {
         return deliveryPrice;
     }
 
-    public void setDeliveryPrice(String deliveryPrice) {
+    public void setDeliveryPrice(Double deliveryPrice) {
         this.deliveryPrice = deliveryPrice;
     }
 

@@ -15,6 +15,6 @@ public class BusinessController {
     private BusinessService businessService;
     @RequestMapping("/list")
     public List<Business> getBusinessList(Business business){
-        return businessService.selectBusinessList(business.getOrderTypeId());
+        return businessService.selectBusinessList(business);
     }
 }
